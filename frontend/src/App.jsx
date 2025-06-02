@@ -8,10 +8,12 @@ import Order from "./pages/Order/Order";
 import { Routes, Route } from "react-router-dom";
 // import "./App.css";
 import Footer from "./components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <div>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
