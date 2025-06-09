@@ -55,9 +55,9 @@ const removeProduct = async (req, res) => {
     }
 
     if (product.image) {
-      const urlParts = product.image.split("/");
-      const folderAndFile = urlParts.slice(-2).join("/");
-      const publicId = folderAndFile.substring(0, folderAndFile.lastIndexOf("."));
+      const urlParts = await product.image.split("/");
+      const folderAndFile = await urlParts.slice(-2).join("/");
+      const publicId = await folderAndFile.substring(0, folderAndFile.lastIndexOf("."));
 
       await cloudinary.uploader.destroy(publicId);
     }
