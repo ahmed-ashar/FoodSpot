@@ -9,20 +9,40 @@ const createToken = (id) => {
 
 const loginUser = async (req, res) => {
   try {
-    res.status(200).json({ message: "User logged in successfully" });
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (isMatch) {
+      const token = createToken(user._id);
+      return res
+        .status(200)
+        .json({ success: true, message: "Login Successfull", token, user });
+    } else {
+      return res
+        .status(400)
+        .json({ success: false, message: "Incorrect password" });
+    }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
 const registerUser = async (req, res) => {
-  // res.status(201).json({ message: "User registered successfully" });
   try {
     const { name, email, password } = req.body;
 
     const exists = await userModel.findOne({ email });
     if (exists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res
+        .status(400)
+        .json({ success: false, message: "User already exists" });
     }
 
     if (!validator.isEmail(email)) {
@@ -64,9 +84,24 @@ const registerUser = async (req, res) => {
 
 const adminLogin = async (req, res) => {
   try {
-    res.status(200).json({ message: "Admin logged in successfully" });
+    const { email, password } = req.body;
+    if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+      const token = jwt.sign(email+password, process.env.JWT_SECRET);
+      res.status(200).json({
+        success: true,
+        message: "Admin Login Successful",
+        token,
+      });
+      
+    }else{
+      res.status(400).json({
+        success: false,
+        message: "Invalid Admin Credentials",
+      });
+    }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
