@@ -5,6 +5,7 @@ import connectDB from './config/mongodb.js';
 // import connectCloudinary from './config/cloudinary.js';
 import userRoute from './routes/userRoute.js';
 import productRouter from './routes/productRoute.js';
+import cartRoute from './routes/cartRoute.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/api/users", userRoute);
 app.use('/api/product', productRouter);
+app.use('/api/cart' , cartRoute)
 
 app.get('/', (req, res) => {
   res.send('FoodSpot API Working');

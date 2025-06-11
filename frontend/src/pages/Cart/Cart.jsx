@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FoodContext } from "../../context/FoodContext";
-import { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import "./Cart.css";
@@ -49,11 +48,11 @@ const Cart = () => {
           );
           if (!productData) return null;
           return (
-            <div className="cart-item" key={index}>
+            <div className="cart-item" key={item._id}>
               <div>
                 <img
                   src={productData.image}
-                  alt=""
+                  alt={productData.name}
                   className="product-cart-image"
                 />
                 <div className="product-details-cart">
@@ -67,12 +66,12 @@ const Cart = () => {
               <input
                 type="number"
                 min={1}
-                defaultValue={item.quantity}
+                value={item.quantity}
                 className="quantity-input"
                 onChange={(e) =>
                   e.target.value === "" || e.target.value === "0"
                     ? null
-                    : updateQuantity(item.id, Number(e.target.value))
+                    : updateQuantity(item._id, Number(e.target.value))
                 }
               />
               <MdDelete
