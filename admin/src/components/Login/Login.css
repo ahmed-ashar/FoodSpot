@@ -50,4 +50,17 @@ background-color: #f9f9f9;
 
 .form-button{
     display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-button:hover{
+    background-color: #333;
 }

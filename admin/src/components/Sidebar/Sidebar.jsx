@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { IoIosLogOut , IoMdAddCircleOutline } from "react-icons/io";
+import { IoIosLogOut, IoMdAddCircleOutline } from "react-icons/io";
 import { MdFormatListBulletedAdd, MdAddShoppingCart } from "react-icons/md";
-import "./Sidebar.css"; 
+import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ setToken }) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-header">
@@ -23,7 +23,7 @@ const Sidebar = () => {
           <MdAddShoppingCart className="sidebar-icon" />
           <p className="sidebar-text">Orders</p>
         </NavLink>
-        <button className="sidebar-link">
+        <button onClick={() => setToken("")} className="sidebar-link">
           <IoIosLogOut className="sidebar-icon" />
           <p className="sidebar-text">Logout</p>
         </button>

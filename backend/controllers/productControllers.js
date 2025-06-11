@@ -25,7 +25,9 @@ const addProduct = async (req, res) => {
     const product = new productModel(productData);
     await product.save();
 
-    res.status(201).json({ message: "Product added successfully", product });
+    res
+      .status(201)
+      .json({ success: true, message: "Product added successfully", product });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: error.message });
@@ -35,7 +37,7 @@ const addProduct = async (req, res) => {
 const listProduct = async (req, res) => {
   try {
     const products = await productModel.find({});
-    res.status(200).json({success:true, products });
+    res.status(200).json({ success: true, products });
     // res.json({ message: "Here is the list of the products" });
   } catch (error) {
     console.log(error);
@@ -51,20 +53,28 @@ const removeProduct = async (req, res) => {
 
     const product = await productModel.findById(req.body._id);
     if (!product) {
-      return res.status(404).json({ success: false, message: "Product not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
     }
 
     if (product.image) {
       const urlParts = await product.image.split("/");
       const folderAndFile = await urlParts.slice(-2).join("/");
-      const publicId = await folderAndFile.substring(0, folderAndFile.lastIndexOf("."));
+      const publicId = await folderAndFile.substring(
+        0,
+        folderAndFile.lastIndexOf(".")
+      );
 
       await cloudinary.uploader.destroy(publicId);
     }
 
     await productModel.findByIdAndDelete(req.body._id);
 
-    res.status(200).json({ success: true, message: "Product and image removed successfully" });
+    res.status(200).json({
+      success: true,
+      message: "Product and image removed successfully",
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: error.message });
@@ -73,7 +83,7 @@ const removeProduct = async (req, res) => {
 
 const singleProduct = async (req, res) => {
   try {
-    const {productId} = req.body;
+    const { productId } = req.body;
 
     const product = await productModel.findById(productId);
     res.status(200).json({ success: true, product });

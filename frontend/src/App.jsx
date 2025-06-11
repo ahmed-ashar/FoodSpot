@@ -10,6 +10,8 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 
+export const backendUrl = 'http://localhost:4000'
+
 const App = () => {
   return (
     <div>

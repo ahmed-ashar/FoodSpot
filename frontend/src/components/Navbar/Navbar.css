@@ -71,8 +71,8 @@
 }
 
 .icons .icon{
-font-size:35px;
-cursor: pointer;
+    font-size:35px;
+    cursor: pointer;
 }
 
 .cart-icon{
@@ -100,7 +100,7 @@ cursor: pointer;
     display:none;
     position:absolute;
     top: 20px;
-    right: -30;
+    right: -30px; /* Fixed: added px */
     background:#fff;
     border:1px solid lightgray;
     border-radius:5px;
@@ -108,11 +108,15 @@ cursor: pointer;
     font-size: 18px;
     padding: 10px;
     box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    z-index: 100;
 }
 
-.profile-group:hover .dropdown-menu{
+/* Show dropdown when hovering profile-group OR dropdown-menu itself */
+.profile-group:hover .dropdown-menu,
+.dropdown-menu:hover {
     display:block;
 }
+
 .dropdown-item{
     color: gray;
     cursor: pointer;

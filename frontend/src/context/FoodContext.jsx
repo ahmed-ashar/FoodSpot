@@ -2,6 +2,9 @@ import { createContext, use, useState } from "react";
 import { product } from "../assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { backendUrl } from "../App";
+import axios from "axios";
+import { useEffect } from "react";
 
 export const FoodContext = createContext();
 
@@ -9,10 +12,12 @@ const FoodContextProvider = ({ children }) => {
   //   const foodData = product;
 
   const delivery_fee = 12;
-  const currency = '$';
+  const currency = "$";
 
   const [products, setProducts] = useState(product);
   const [cartItems, setCartItems] = useState({});
+  let [token, setToken] = useState("");
+
   const navigate = useNavigate();
 
   const addToCart = async (itemId) => {
@@ -47,6 +52,33 @@ const FoodContextProvider = ({ children }) => {
       0
     );
   };
+
+  const getProductsData = async () => {
+    try {
+      const response = await axios.get(`${backendUrl}/api/product/list`);
+      console.log(response.data);
+
+      if (response.data.success) {
+        setProducts(response.data.products);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
+  
+
+  useEffect(() => {
+    getProductsData();
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+
   return (
     <FoodContext.Provider
       value={{
@@ -58,7 +90,9 @@ const FoodContextProvider = ({ children }) => {
         updateQuantity,
         currency,
         navigate,
-        cartItems
+        cartItems,
+        token,
+        setToken,
       }}
     >
       {children}
