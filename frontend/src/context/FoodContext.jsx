@@ -140,6 +140,7 @@ const FoodContextProvider = ({ children }) => {
         navigate,
         cartItems,
         token,
+        setCartItems,
         setToken,
       }}
     >
