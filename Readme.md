@@ -134,33 +134,25 @@ Add to headers:
 {
   "token": "admin_access_token"
 }
+```
 🚀 Setup
+```
 Frontend
-bash
 git clone https://github.com/codecoolwithahmed/FoodSpot
 cd frontend
 npm install
 npm start
+```
+```
 Backend
-bash
 cd backend
 npm install
-Create .env:
+```
 
+Create .env:
+```
 ini
 PORT=4000
 MONGO_URL=mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-🔮 Future Improvements
-Email notifications
-
-Password recovery
-
-Advanced search
-
-Analytics dashboard
-
-👨💻 Author
-Muhammad Ahmed Ashar
-MERN Stack Developer
-GitHub
+```
