@@ -57,7 +57,7 @@ gap:100px;
     text-align:center;
     position:relative;
     overflow:hidden;
-    transiction:box-shadow 0.3s ease;
+    transition: box-shadow 0.3 ease;
 }
 
 .product_card:hover{
