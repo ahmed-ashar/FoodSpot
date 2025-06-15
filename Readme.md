@@ -58,6 +58,13 @@ FoodSpot is a full-stack MERN application that allows users to browse food items
 ### 🔵 Frontend (User)
 
 
+
+
+
+
+
+
+```
 frontend/
 ├── src/
 │ ├── components/
@@ -76,10 +83,8 @@ frontend/
 │ │ └── FoodContext.js
 │ ├── App.js
 │ └── index.js
+```
 
-shell
-Copy
-Edit
 
 ### 🔴 Admin Panel
 
