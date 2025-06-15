@@ -9,8 +9,8 @@ FoodSpot is a full-stack MERN application that allows users to browse food items
 | Platform     | Link                                                   |
 |--------------|--------------------------------------------------------|
 | Frontend     | [foodspot-frontend.vercel.app](https://foodspot-frontend.vercel.app) |
-| Admin Panel  | [foodspot-admin.vercel.app](https://foodspot-admin.vercel.app)       |
-| Backend Repo | [github.com/codecoolwithahmed/FoodSpot](https://github.com/codecoolwithahmed/FoodSpot) |
+| Admin Panel  | [food-spot-five.vercel.app](https://food-spot-five.vercel.app)       |
+| Backend Repo | [github.com/ahmed-ashar/FoodSpot](https://github.com/ahmed-ashar/FoodSpot) |
 
 ---
 
@@ -130,7 +130,7 @@ backend/
 ### ✅ Frontend & Admin Panel
 
 ```
-git clone https://github.com/codecoolwithahmed/FoodSpot
+git clone https://github.com/ahmed-ashar/FoodSpot
 cd frontend   # or cd admin for admin panel
 npm install
 npm start
@@ -138,11 +138,11 @@ npm start
 
 Set your backend URL inside src/App.js:
 
-export const backendUrl = 'https://your-backend-url.com';
+export const backendUrl = 'https://food-spot-five.vercel.app';
 🛠 Backend API Setup
 
 ```
-git clone https://github.com/codecoolwithahmed/FoodSpot
+git clone https://github.com/ahmed-ashar/FoodSpot
 cd backend
 npm install
 ```
