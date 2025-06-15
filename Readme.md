@@ -123,7 +123,7 @@ backend/
 ├── .env
 ├── server.js
 └── README.md
----
+```
 
 ## ⚙️ Getting Started
 
