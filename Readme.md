@@ -1,33 +1,63 @@
 # 🍔 FoodSpot - Online Food Ordering Platform
 
-## 🌟 Features
+FoodSpot is a full-stack MERN application that allows users to browse food items, place orders, and manage them through an admin dashboard. It supports Stripe payments and JWT-based authentication.
 
-### 👨‍🍳 User Side
-- User authentication (JWT)
-- Browse food menu
-- Add/remove items from cart
-- Stripe payment integration
-- Order history tracking
-- Order status updates
+---
+
+## 🌍 Live Demos
+
+| Platform     | Link                                                   |
+|--------------|--------------------------------------------------------|
+| Frontend     | [foodspot-frontend.vercel.app](https://foodspot-frontend.vercel.app) |
+| Admin Panel  | [foodspot-admin.vercel.app](https://foodspot-admin.vercel.app)       |
+| Backend Repo | [github.com/codecoolwithahmed/FoodSpot](https://github.com/codecoolwithahmed/FoodSpot) |
+
+---
+
+## 🛂 Demo Admin Login
+
+- **Email**: `admin@gmail.com`  
+- **Password**: `admin1234`
+
+---
+
+## ✨ Features
+
+### 👨‍🍳 User Side (Frontend)
+- 🔐 User Authentication (JWT)
+- 🍽️ Browse food products
+- 🛒 Add/remove items from cart
+- 💳 Stripe Payment Integration
+- 📦 Order History and Tracking
+- ✅ Order Status (Pending / Delivered / Cancelled)
 
 ### 🛠️ Admin Panel
-- Admin dashboard
-- Product management
-- Order management
-- Status updates
-- Responsive design
+- 🔐 Admin-only login
+- ➕ Add/Edit/Delete products
+- 📦 View and manage all orders
+- 🔁 Change order status
+- 🧭 Sidebar for easy navigation
+- 📱 Fully responsive
 
-## 🖥️ Tech Stack
-- **Frontend**: React, Axios, React Router
-- **Admin**: React, Context API
-- **Backend**: Node.js, Express
-- **Database**: MongoDB
+---
+
+## 🧰 Tech Stack
+
+- **Frontend**: React, Axios, React Router, Toastify
+- **Admin Panel**: React, Context API, Protected Routes
+- **Backend API**: Node.js, Express, MongoDB, JWT, Stripe, Cloudinary
+- **Database**: MongoDB with Mongoose
 - **Payments**: Stripe
-- **Storage**: Cloudinary
+- **Image Uploads**: Cloudinary
+- **Hosting**: Vercel (Frontend & Admin), Render (Backend)
 
-## 📂 Project Structure
+---
 
-### Frontend
+## 📁 Project Structure
+
+### 🔵 Frontend (User)
+
+
 ```
 frontend/
 ├── src/
@@ -50,7 +80,7 @@ frontend/
 ```
 
 
-### Admin Panel
+### 🔴 Admin Panel
 ```
 admin/
 ├── src/
@@ -66,7 +96,7 @@ admin/
 ```
 
 
-### Backend
+### 🟢 Backend API
 ```
 backend/
 ├── config/
@@ -93,8 +123,48 @@ backend/
 ├── .env
 ├── server.js
 └── README.md
+---
+
+## ⚙️ Getting Started
+
+### ✅ Frontend & Admin Panel
+
+```
+git clone https://github.com/codecoolwithahmed/FoodSpot
+cd frontend   # or cd admin for admin panel
+npm install
+npm start
 ```
 
+Set your backend URL inside src/App.js:
+
+export const backendUrl = 'https://your-backend-url.com';
+🛠 Backend API Setup
+
+```
+git clone https://github.com/codecoolwithahmed/FoodSpot
+cd backend
+npm install
+```
+
+Create .env file:
+
+```
+PORT=4000
+MONGO_URL=your_mongodb_url
+JWT_SECRET=your_jwt_secret
+ADMIN_EMAIL=admin@gmail.com
+ADMIN_PASSWORD=admin1234
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Start backend server:
+
+```
+npm start
+```
 
 ## 🔌 API Endpoints
 
@@ -128,31 +198,11 @@ backend/
 | POST | `/api/order/list` | List orders |
 | POST | `/api/order/status` | Update status |
 
-## 🔒 Admin Access
-Add to headers:
-```
-{
-  "token": "admin_access_token"
-}
-```
-🚀 Setup
-```
-Frontend
-git clone https://github.com/codecoolwithahmed/FoodSpot
-cd frontend
-npm install
-npm start
-```
-```
-Backend
-cd backend
-npm install
-```
+### 🔐 Admin Protected Routes
+Add the token in the header for all admin routes:
 
-Create .env:
 ```
-ini
-PORT=4000
-MONGO_URL=mongodb_connection_string
-JWT_SECRET=your_jwt_secret
+headers: {
+  "token": "your_admin_token"
+}
 ```
