@@ -28,6 +28,7 @@
 ## 📂 Project Structure
 
 ### Frontend
+```
 frontend/
 ├── src/
 │ ├── components/
@@ -46,10 +47,11 @@ frontend/
 │ │ └── FoodContext.js
 │ ├── App.js
 │ └── index.js
+```
 
-text
 
 ### Admin Panel
+```
 admin/
 ├── src/
 │ ├── components/
@@ -61,10 +63,11 @@ admin/
 │ │ └── Orders/
 │ ├── App.jsx
 │ └── index.css
+```
 
-text
 
 ### Backend
+```
 backend/
 ├── config/
 │ ├── cloudinary.js
@@ -90,8 +93,8 @@ backend/
 ├── .env
 ├── server.js
 └── README.md
+```
 
-text
 
 ## 🔌 API Endpoints
 
@@ -127,7 +130,7 @@ text
 
 ## 🔒 Admin Access
 Add to headers:
-```json
+```
 {
   "token": "admin_access_token"
 }
