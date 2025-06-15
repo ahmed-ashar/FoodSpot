@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import Verify from "./pages/Verify";
 
-export const backendUrl = 'http://localhost:4000'
+export const backendUrl = 'https://food-spot-five.vercel.app'
 
 const App = () => {
   return (

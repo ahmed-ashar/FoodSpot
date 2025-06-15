@@ -8,7 +8,7 @@ import Login from "./components/Login/Login";
 // import './App.css'
 import { ToastContainer } from "react-toastify";
 
-export const backendUrl = 'http://localhost:4000'
+export const backendUrl = 'https://food-spot-five.vercel.app'
 export const currency = "$"
 
 const App = () => {
