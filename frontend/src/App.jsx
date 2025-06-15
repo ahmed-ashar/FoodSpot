@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 // import "./App.css";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
+import Verify from "./pages/Verify";
 
 export const backendUrl = 'http://localhost:4000'
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/orders" element={<Order />} />
+        <Route path="/verify" element={<Verify />} />
       </Routes>
       <Footer />
     </div>

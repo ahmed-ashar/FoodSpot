@@ -11,13 +11,13 @@ const authUser = async (req, res, next) => {
 
   try {
     const token_decode = jwt.verify(token, process.env.JWT_SECRET);
-    // console.log(token_decode);
+    console.log(token_decode);
     req.body.userId = token_decode.id;
     
     next();
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.json({ success: false, message: {err:error.message,here:"here"} });
   }
 };
 

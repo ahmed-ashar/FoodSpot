@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import { ToastContainer } from "react-toastify";
 
 export const backendUrl = 'http://localhost:4000'
+export const currency = "$"
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token" || ""));
@@ -30,7 +31,7 @@ const App = () => {
               <Routes>
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/list" element={<List token={token} />} />
-                <Route path="/orders" element={<Orders />} />
+                <Route path="/orders" element={<Orders token={token}  />} />
               </Routes>
             </div>
           </div>

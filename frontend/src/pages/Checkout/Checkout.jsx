@@ -44,56 +44,77 @@ const Checkout = () => {
     }));
   };
 
-  const onSubmitHandler = async (event)=>{
-    event.preventDefault()
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    console.log("www");
+    
 
     try {
-      
-      let orderItems = []
+      let orderItems = [];
 
-      for(const items in cartItems){
-        for(const item in cartItems[items]){
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
           if (cartItems[items][item] > 0) {
             const itemInfo = structuredClone(
-              products.find((product)=>product._id === items)
-            )
+              products.find((product) => product._id === items)
+            );
 
             if (itemInfo) {
-              itemInfo.quantity = cartItems[items][item]
-              orderItems.push(itemInfo)
+              itemInfo.quantity = cartItems[items][item];
+              orderItems.push(itemInfo);
             }
           }
         }
       }
 
       let orderData = {
-        address:formData,
-        items:orderItems,
-        amount:getCartAmount() + delivery_fee
-      }
+        address: formData,
+        items: orderItems,
+        amount: getCartAmount() + delivery_fee,
+      };
 
       switch (method) {
         case "cod":
-          const response = await axios.post(backendUrl + '/api/order/place', orderData, {headers:{token}})
+          const response = await axios.post(
+            backendUrl + "/api/order/place",
+            orderData,
+            { headers: { token } }
+          );
           // console.log(response.data);
-if (response.data.success) {
-  setCartItems({})
-  
-  navigate('/orders')
-}else{
-  toast.error("here",response.data.message)
-}
+          if (response.data.success) {
+            setCartItems({});
 
+            navigate("/orders");
+          } else {
+            toast.error("here", response.data.message);
+          }
           break;
-      
+
+        case "stripe":
+          const responseStripe = await axios.post(
+            backendUrl + "/api/order/stripe",
+            orderData,
+            { headers: { token } }
+          );
+          console.log(responseStripe);
+
+          if (responseStripe.data.success) {
+            const { session_url } = responseStripe.data;
+            window.location.replace(session_url);
+          } else {
+            console.log(responseStripe);
+
+            toast.error(responseStripe.data.message);
+          }
+          break;
         default:
           break;
       }
     } catch (error) {
       console.log(error);
-      toast.error("here1",error.message)
+      toast.error("here1", error.message);
     }
-  }
+  };
   return (
     <div>
       <form onSubmit={onSubmitHandler} className="form-container">
@@ -125,12 +146,12 @@ if (response.data.success) {
           </div>
           <div className="form-row">
             <input
-            name="firstName"
-            value={formData.firstName}
-            onChange={onChangeHandler}
-            type="text"
-            className="form-input"
-            placeholder="First Name"
+              name="firstName"
+              value={formData.firstName}
+              onChange={onChangeHandler}
+              type="text"
+              className="form-input"
+              placeholder="First Name"
             />
             <input
               type="text"
@@ -139,7 +160,7 @@ if (response.data.success) {
               onChange={onChangeHandler}
               className="form-input"
               placeholder="Last Name"
-              />
+            />
           </div>
           <input
             type="email"
@@ -148,7 +169,7 @@ if (response.data.success) {
             onChange={onChangeHandler}
             className="form-input"
             placeholder="Email Address"
-            />
+          />
           <input
             type="text"
             name="phone"
@@ -156,7 +177,7 @@ if (response.data.success) {
             onChange={onChangeHandler}
             className="form-input"
             placeholder="Phone Number"
-            />
+          />
           <input
             type="text"
             name="street"
@@ -164,7 +185,7 @@ if (response.data.success) {
             onChange={onChangeHandler}
             className="form-input"
             placeholder="Street Address"
-            />
+          />
           <div className="form-row">
             <input
               type="text"
@@ -173,7 +194,7 @@ if (response.data.success) {
               onChange={onChangeHandler}
               className="form-input"
               placeholder="City"
-              />
+            />
             <input
               type="text"
               name="state"
@@ -181,7 +202,7 @@ if (response.data.success) {
               onChange={onChangeHandler}
               className="form-input"
               placeholder="State"
-              />
+            />
           </div>
           <div className="form-row">
             <input
@@ -191,7 +212,7 @@ if (response.data.success) {
               onChange={onChangeHandler}
               className="form-input"
               placeholder="Zipcode"
-              />
+            />
             <input
               type="text"
               name="country"
