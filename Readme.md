@@ -57,6 +57,7 @@ FoodSpot is a full-stack MERN application that allows users to browse food items
 
 ### 🔵 Frontend (User)
 
+
 frontend/
 ├── src/
 │ ├── components/
@@ -138,7 +139,7 @@ Edit
 
 ```bash
 git clone https://github.com/codecoolwithahmed/FoodSpot
-cd frontend  # or admin for admin panel
+cd frontend   # or cd admin for admin panel
 npm install
 npm start
 Set your backend URL inside src/App.js:
@@ -154,7 +155,8 @@ Edit
 git clone https://github.com/codecoolwithahmed/FoodSpot
 cd backend
 npm install
-🔐 Create .env file
+Create .env file:
+
 ini
 Copy
 Edit
@@ -166,7 +168,8 @@ ADMIN_PASSWORD=admin1234
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-▶️ Start Backend Server
+Start backend server:
+
 bash
 Copy
 Edit
