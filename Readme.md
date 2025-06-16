@@ -9,8 +9,8 @@ FoodSpot is a full-stack MERN application that allows users to browse food items
 | Platform     | Link                                                   |
 |--------------|--------------------------------------------------------|
 | Frontend     | [foodspot-frontend.vercel.app](https://foodspot-frontend.vercel.app) |
-| Admin Panel  | [food-spot-five.vercel.app](https://food-spot-five.vercel.app)       |
-| Backend Repo | [github.com/ahmed-ashar/FoodSpot](https://github.com/ahmed-ashar/FoodSpot) |
+| Admin Panel  | [foodspot-admin.vercel.app](https://foodspot-admin.vercel.app)       |
+| Backend Repo | [github.com/ahmed-ashar/FoodSpot](https://github.com/ahmed-ashar/FoodSpot/tree/main/backend) |
 
 ---
 
