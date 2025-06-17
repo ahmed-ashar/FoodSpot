@@ -6,7 +6,6 @@ import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Order from "./pages/Order/Order";
 import { Routes, Route } from "react-router-dom";
-// import "./App.css";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import Verify from "./pages/Verify";
