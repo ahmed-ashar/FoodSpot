@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FoodContext } from "../../context/FoodContext";
 import axios from "axios";
 import { backendUrl } from "../../App";
