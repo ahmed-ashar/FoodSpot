@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import upload_image from "../../assets/generated-image.png";
 import "./Add.css";
 import { backendUrl } from "../../App";
@@ -30,8 +30,6 @@ const Add = ({ token }) => {
         }
       );
 
-      console.log(response);
-
       if (response.data.success) {
         toast.success("success", response.data.message);
         setName("");
@@ -56,7 +54,6 @@ const Add = ({ token }) => {
             <img
               src={!image ? upload_image : URL.createObjectURL(image)}
               className="img-preview"
-              // style={{ width: "260px", height: "280px" }}
             />
             <input
               type="file"

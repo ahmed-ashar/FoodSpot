@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { IoIosLogOut, IoMdAddCircleOutline } from "react-icons/io";
 import { MdFormatListBulletedAdd, MdAddShoppingCart } from "react-icons/md";

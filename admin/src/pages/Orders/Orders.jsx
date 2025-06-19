@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { backendUrl, currency } from "../../App";
 import { useEffect } from "react";
@@ -21,7 +20,6 @@ const Orders = ({ token }) => {
         { headers: { token } }
       );
 
-      // console.log(response);
       if (response.data.success) {
         setOrders(response.data.order);
       } else {
@@ -53,6 +51,7 @@ const Orders = ({ token }) => {
   useEffect(() => {
     fetchAllOrders();
   }, [token]);
+
   return (
     <div className="color">
       <h3 className="order-title">All Orders</h3>

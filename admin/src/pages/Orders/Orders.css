@@ -1,33 +1,33 @@
-.color{
-    color: black;
+.color {
+  color: black;
 }
 
-.order-container{
-    width: 100%;
-    overflow-x: auto;
+.order-container {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.order-table{
-    width: 100%;
-    border-collapse: collapse;
-    white-space: nowrap;
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
 }
 
 .order-table th,
-.order-table td{
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
+.order-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-.order-table th{
-    background-color: #f4f4f4;
-    font-weight: bold;
+.order-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
-.order-status{
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    background-color: white;
+.order-status {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: white;
 }
