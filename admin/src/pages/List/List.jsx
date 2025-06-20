@@ -15,6 +15,7 @@ const List = ({ token }) => {
       });
       if (response.data.success) {
         setList(response.data.products);
+        console.log(response.data);
       } else {
         toast.error(response.data.message);
       }
@@ -35,6 +36,7 @@ const List = ({ token }) => {
       if (response.data.success) {
         toast.success(response.data.message);
         await fetchList();
+        
       } else {
         toast.error(response.data.message);
       }
@@ -55,6 +57,7 @@ const List = ({ token }) => {
         <div className="product-table-title">
           <b>Image</b>
           <b>Name</b>
+          <b>Description</b>
           <b>Category</b>
           <b>Price</b>
           <b className="action-title">Action</b>
@@ -63,6 +66,7 @@ const List = ({ token }) => {
           <div key={index} className="product-row">
             <img src={item.image} alt="" className="product-image" />
             <p>{item.name}</p>
+            <p>{item.description}</p>
             <p>{item.category}</p>
             <p>{item.price}</p>
             <MdDeleteForever

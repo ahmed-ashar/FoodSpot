@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import "./FoodCollection.css";
 import { categoryItem } from "../../assets/assets";
 import { FoodContext } from "../../context/FoodContext";
@@ -7,6 +7,7 @@ const FoodCollection = () => {
   const { products, addToCart } = useContext(FoodContext);
 
   const [category, setCategory] = useState("All");
+
   return (
     <div>
       <div className="food_container">
@@ -50,6 +51,7 @@ const FoodCollection = () => {
                       />
                     </div>
                     <h3>{product.name}</h3>
+                    <p>{product.description}</p>
                     <div className="price_add">
                       <p>${product.price}</p>
                       <button

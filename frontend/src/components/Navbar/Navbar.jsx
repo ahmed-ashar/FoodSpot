@@ -6,38 +6,35 @@ import { FoodContext } from "../../context/FoodContext";
 import { FaCentos } from "react-icons/fa";
 
 const Navbar = () => {
+  const [loading, setLoading] = useState(false);
 
-    const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const logout = () => {
+    navigate("/login");
+    setToken("");
+    localStorage.removeItem("token");
+  };
 
-    const logout = ()=>{
-      navigate('/login')
-      setToken("")
-      localStorage.removeItem('token')
-    }
+  const handleNavigation = (path) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    navigate(path);
+  };
 
-    const handleNavigation = (path)=>{
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false);
-        },2000)
-            navigate(path);
-    }
-
-    const {getCartCount,token,setToken} = useContext(FoodContext);
+  const { getCartCount, token, setToken } = useContext(FoodContext);
 
   return (
     <div>
-      {
-        loading && (
-          <div className="loader-container">
-            <div className="loader">
-              <FaCentos className="loader-icon" />
-            </div>
+      {loading && (
+        <div className="loader-container">
+          <div className="loader">
+            <FaCentos className="loader-icon" />
           </div>
-        )
-      }
+        </div>
+      )}
       <nav className="navbar">
         <div>
           <Link to="/">
@@ -63,10 +60,15 @@ const Navbar = () => {
               <Link to="/orders">
                 <p className="dropdown-item">Orders</p>
               </Link>
-              <p onClick={logout} className="dropdown-item">Logout</p>
+              <p onClick={logout} className="dropdown-item">
+                Logout
+              </p>
             </div>
           </div>
-          <button className="cart-icon" onClick={() => handleNavigation('/cart')}>
+          <button
+            className="cart-icon"
+            onClick={() => handleNavigation("/cart")}
+          >
             <BiCart className="icon" />
             <span className="cart-qty">{getCartCount()}</span>
           </button>

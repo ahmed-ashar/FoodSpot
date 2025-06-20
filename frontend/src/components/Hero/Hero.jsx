@@ -20,7 +20,7 @@ const Hero = () => {
               ullam, dicta tenetur id voluptatibus consequuntur quasi est
               officiis labore nobis. Maxime.
             </p>
-            <button>Ecplore Our Menu</button>
+            <button className="explore">Explore Our Menu</button>
           </div>
           <div className="hero_right">
             <img src={hero_img} alt="Delicious Meal" className="hero_img" />
