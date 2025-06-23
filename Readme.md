@@ -1,6 +1,6 @@
 # 🍔 FoodSpot - Online Food Ordering Platform
 
-FoodSpot is a full-stack MERN application that allows users to browse food items, place orders, and manage them through an admin dashboard. It supports Stripe payments and JWT-based authentication.
+FoodSpot is a Full-Stack MERN application that allows users to browse food items, place orders, and manage them through an admin dashboard. It supports Stripe payments and JWT-based authentication.
 
 ---
 
